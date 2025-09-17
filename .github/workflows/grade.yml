@@ -1,0 +1,58 @@
+name: Grade student repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      student_repo:
+        description: 'student repo name, e.g. org/student-repo'
+        required: true
+      commit:
+        description: 'commit SHA or branch to test'
+        required: true
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read          # for checking out repos
+      actions: none
+    steps:
+      - name: Checkout grader repo (harness)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Checkout student repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.inputs.student_repo }}
+          ref: ${{ github.event.inputs.commit }}
+          token: ${{ secrets.GRADER_READ_TOKEN }}   # read-only token (GitHub App installation token is better)
+          path: student-repo
+
+      - name: Prepare test harness
+        run: |
+          # copy (or symlink) authoritative tests into working dir
+          cp -r grader-harness/* student-repo/ || true
+        # grader-harness/ holds the test suite and scripts in this trusted repo
+
+      - name: Run tests (produce results.json)
+        working-directory: student-repo
+        run: |
+          npm ci --no-audit --no-fund
+          npm run grade   # should produce results.json
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ github.event.inputs.student_repo }}-${{ github.event.inputs.commit }}
+          path: student-repo/results.json
+
+      - name: Notify backend
+        if: success() || failure()
+        run: |
+          # Optionally POST to your backend with run metadata (artifact url can be fetched via API)
+          curl -X POST -H "Authorization: Bearer $BACKEND_TOKEN" -d '{"repo":"'"${{ github.event.inputs.student_repo }}"'","commit":"'"${{ github.event.inputs.commit }}"'"}' https://your-backend.example.com/grade-callback
+        env:
+          BACKEND_TOKEN: ${{ secrets.BACKEND_TOKEN }}

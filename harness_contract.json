@@ -1,0 +1,15 @@
+{
+  "projectId": "calc-ts-starter",
+  "language": "typescript",
+  "testsCommand": "npm ci && npm run test",
+  "expectedArtifact": "results.json",
+  "entrypoint": "src/calculator.ts",
+  "publicExamples": [
+    {
+      "input": "2+2",
+      "expected": "4"
+    }
+  ],
+  "allowedNetwork": false,
+  "timeoutSeconds": 120
+}

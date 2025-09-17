@@ -1,4 +1,4 @@
-# 📘 Calculator Project (Intermediate)
+# 📘 Calculator Project
 
 Welcome! Your task is to build a **Calculator web app** using **Next.js + TypeScript**.  
 This project will test both your **UI building skills** and your **logic implementation skills**.
@@ -87,7 +87,7 @@ harness_contract.json    # testing contract
 
 ## ▶️ Run Locally
 ```bash
-npm ci
+npm i
 npm run dev
 ```
 Then open **http://localhost:3000**

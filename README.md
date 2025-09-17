@@ -1,4 +1,4 @@
-# 📘 Calculator Project 
+# 📘 Calculator Project (Intermediate)
 
 Welcome! Your task is to build a **Calculator web app** using **Next.js + TypeScript**.  
 This project will test both your **UI building skills** and your **logic implementation skills**.
@@ -39,6 +39,30 @@ Create a calculator that:
 
 ---
 
+## 🖼️ Suggested Layout
+Here’s a simple sketch of what your calculator UI might look like:
+
+```
+ -------------------------
+| Expression: 12+3*(4-1) |
+| Result: 21              |
+ -------------------------
+|  C  |  ←  |  (  |  )  |
+ -------------------------
+|  7  |  8  |  9  |  /  |
+ -------------------------
+|  4  |  5  |  6  |  *  |
+ -------------------------
+|  1  |  2  |  3  |  -  |
+ -------------------------
+|  0  |  .  |  =  |  +  |
+ -------------------------
+```
+
+You don’t need to match this design exactly, but your app should include **all buttons** and a **clear display**.
+
+---
+
 ## 📂 Required Project Structure
 Keep these files (do not rename or remove):
 ```
@@ -63,7 +87,7 @@ harness_contract.json    # testing contract
 
 ## ▶️ Run Locally
 ```bash
-npm i
+npm ci
 npm run dev
 ```
 Then open **http://localhost:3000**

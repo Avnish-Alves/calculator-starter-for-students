@@ -1,11 +1,11 @@
-# 📘 Calculator Project
+# Calculator Project
 
 Welcome! Your task is to build a **Calculator web app** using **Next.js + TypeScript**.  
 This project will test both your **UI building skills** and your **logic implementation skills**.
 
 ---
 
-## 🎯 Your Goal
+## Your Goal
 Create a calculator that:
 - Lets users type or click buttons to build an expression.  
 - Correctly evaluates expressions with **operator precedence** (`*` and `/` before `+` and `-`) and **parentheses**.  
@@ -14,7 +14,7 @@ Create a calculator that:
 
 ---
 
-## 🛠️ Where to Code
+## Where to Code
 1. **Logic** → `src/calculator.ts`  
    - Implement:
      ```ts
@@ -39,7 +39,7 @@ Create a calculator that:
 
 ---
 
-## 🖼️ Suggested Layout
+## Suggested Layout
 Here’s a simple sketch of what your calculator UI might look like:
 
 ```
@@ -63,7 +63,7 @@ You don’t need to match this design exactly, but your app should include **all
 
 ---
 
-## 📂 Required Project Structure
+## Required Project Structure
 Keep these files (do not rename or remove):
 ```
 src/calculator.ts        # logic file
@@ -77,7 +77,7 @@ harness_contract.json    # testing contract
 
 ---
 
-## 🚦 Rules
+## Rules
 - **Do not** import third-party math libraries.  
 - **Do not** modify `Calculator.evaluate()` signature — the grader calls it directly.  
 - **Do not** change `harness_contract.json`.  
@@ -85,7 +85,7 @@ harness_contract.json    # testing contract
 
 ---
 
-## ▶️ Run Locally
+## Run Locally
 ```bash
 npm i
 npm run dev
@@ -94,7 +94,7 @@ Then open **http://localhost:3000**
 
 ---
 
-## 🧪 How Your Code Will Be Tested
+## How Your Code Will Be Tested
 Our grader will:
 1. Install dependencies (`npm ci`).  
 2. Run hidden test cases that call:  
@@ -116,11 +116,11 @@ Example public tests:
 
 ---
 
-## 📤 Submitting Your Work
+## Submitting Your Work
 1. Commit your finished code.  
 2. Push to your repository (branch: `main`).  
 3. The grader will automatically run and return results.  
 
 ---
 
-✅ Follow this README and you’ll go from the starter zip → full working calculator → passing test cases.
+ Follow this README and you’ll go from the starter zip → full working calculator → passing test cases.
